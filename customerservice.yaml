@@ -24,7 +24,7 @@ spec:
   spec:
     containers:
       - name: customer-service
-        image:  gcr.io/kubernetes-01-basic/customer-service:1.0
+        image:  gcr.io/kuberenetes-01-basic/customer-service:1.0
         ports:
           - containerPort: 3000
         env:
