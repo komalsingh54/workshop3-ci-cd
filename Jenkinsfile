@@ -5,24 +5,24 @@ pipeline{
         stage('Installing NPM dependencies'){
            
             steps {
-                sh 'npm install'
+                sh '/usr/local/bin/npm install'
             }
         }
          stage('Run Unit Test'){
         
             steps {
-                sh 'npm run test'
+                sh '/usr/local/bin/npm run test'
             }
         }
         stage('Run Coverage Test'){
         
             steps {
-                sh 'npm run test:coverage'
+                sh '/usr/local/bin/npm run testCoverage'
             }
         }
         stage('Run Sonar Analysis'){
             steps {
-                sh 'npm run sonar'
+                sh '/usr/local/bin/npm run sonar'
             }
         }
     }

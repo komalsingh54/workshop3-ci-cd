@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node src/index.js",
     "sonar": "node sonar-project.js",
-    "test:coverage": "jest --coverage"
+    "testCoverage": "jest --coverage"
   },
   "keywords": [
     "Jenkinsfile",
