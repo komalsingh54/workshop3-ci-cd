@@ -39,7 +39,7 @@ pipeline{
 
          stage('Launch CustomerService Application'){
             steps {
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
             }
         }
 
@@ -59,6 +59,12 @@ pipeline{
          stage('Security Test'){
             steps {
                 echo 'Security Test executed successfully'
+            }
+        }
+
+         stage('Destroy Customer Service Application'){
+            steps {
+                sh 'docker-compose down'
             }
         }
     }
