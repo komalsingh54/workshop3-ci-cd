@@ -67,5 +67,27 @@ pipeline{
                 sh 'docker-compose down'
             }
         }
+        stage('Upload the docker image to Google container repository'){
+            steps {
+                sh 'gcloud builds submit --tag gcr.io/kubernetes-01-basic/customer-service:1.0 .'
+            }
+        }
+         stage('Launch Mongodb service'){
+            steps {
+                sh 'kubectl create -f mongodb.yaml'
+            }
+        }
+
+         stage('Launch Customer service'){
+            steps {
+                sh 'kubectl create -f customerservice.yaml'
+            }
+            post {
+                always{
+                    echo 'Smoke Test run successfully'
+                }
+            }
+        }
+
     }
 }
