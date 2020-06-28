@@ -5,27 +5,27 @@ pipeline{
         stage('Installing NPM dependencies'){
            
             steps {
-                sh '/usr/local/bin/npm install'
+                sh 'npm install'
             }
         }
          stage('Run Unit Test'){
         
             steps {
-                sh '/usr/local/bin/npm run test'
+                sh 'npm run test'
             }
         }
         stage('Run Coverage Test'){
         
             steps {
-                sh '/usr/local/bin/npm run testCoverage'
+                sh 'npm run testCoverage'
             }
         }
         stage('Run Sonar Analysis'){
             steps {
-                sh '/usr/local/bin/npm run sonar'
+                sh 'npm run sonar'
             }
         }
-         stage('Build docker image'){
+        /* stage('Build docker image'){
             steps {
                 sh 'docker-compose build'
             }
@@ -78,7 +78,7 @@ pipeline{
             }
         }
 
-         stage('Launch Customer service'){
+        stage('Launch Customer service'){
             steps {
                 sh 'kubectl create -f customerservice.yaml'
             }
@@ -87,7 +87,7 @@ pipeline{
                     echo 'Smoke Test run successfully'
                 }
             }
-        }
+        } */
 
     }
 }
